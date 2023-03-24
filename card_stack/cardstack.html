@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Card Stack</title>
+        <link rel="stylesheet" href="cardstack.css">
+    </head>
+    <body >
+        <div class="card-swiper">
+            <div class="card-groups">
+                <div class="card-group" data-index="0" data-status="active">
+                    <div class="little-card card"></div>
+                    <div class="big-card card">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/2Ro2/image/RTeFj7WWdMgxwHF6CNZncSVaciQ.jpg" alt="" class="small-image need_small_border">
+                    </div>
+                    <div class="little-card card">
+                    </div>
+                    <div class="big-card card">
+                    </div>
+                    <div class="little-card card">
+                    </div>
+                    <div class="big-card card">
+                    </div>
+                    <div class="little-card card"></div>
+                    <div class="big-card card">
+                    </div>
+                </div>
+        
+                <div class="card-group" data-index="1"  data-status="after">
+                    <div class="little-card card"></div>
+                    <div class="big-card card">
+                        <img src="https://mblogthumb-phinf.pstatic.net/MjAxOTAyMTdfMTQz/MDAxNTUwMzgyNDUzOTY3.W61CKiEwBwK9A9xOT9UxVM6HYDYUL4zSq4w3kHNFfXMg.NqVDhuBawBwzZbOyYgYcc4r73HtONaQICLGBFbAIFkAg.JPEG.dmstn2268/61IQDD5bIRL.jpg?type=w800" alt="" class="big-image need_border">
+                    </div>
+                    <div class="little-card card">
+                    </div>
+                    <div class="big-card card">
+                    </div>
+                    <div class="little-card card">
+                    </div>
+                    <div class="big-card card">
+                    </div>
+                    <div class="little-card card"></div>
+                    <div class="big-card card">
+                    </div>
+                </div>
+        
+                <div class="card-group" data-index="2"  data-status="after">
+                    <div class="little-card card"></div>
+                    <div class="big-card card">
+                        <img src="https://i.postimg.cc/Gt2FTTqJ/ab67616d0000b273a927eacdf2a33d62becbb727-1.jpg" alt="" class="big-image">
+                    </div>
+                    <div class="little-card card">
+                    </div>
+                    <div class="big-card card">
+                    </div>
+                    <div class="little-card card">
+                    </div>
+                    <div class="big-card card">
+                    </div>
+                    <div class="little-card card"></div>
+                    <div class="big-card card">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-swiper-buttons">
+                <button class="hate-button">
+                    ❌
+                </button>
+                <button class="love-button">
+                    ❤️
+                </button>
+            </div>
+        </div>
+    </body>
+    <script>
+        let activeIndex = 0;
+        const group = document.getElementsByClassName("card-group");
+        let loveBtn = document.querySelector(".love-button");
+        let hateBtn = document.querySelector(".hate-button");
+
+        const handleLoveClick = () => {
+            const nextIndex = activeIndex + 1 <= group.length - 1 ? activeIndex + 1 : 0;
+            const currGroup = document.querySelector(`[data-index="${activeIndex}"]`),
+                  nextGroup = document.querySelector(`[data-index="${nextIndex}"]`);
+
+            currGroup.dataset.status = "after";
+            nextGroup.dataset.status = "becoming-active-from-before";
+            setTimeout(()=> {
+                nextGroup.dataset.status = "active";
+            })
+
+            activeIndex = nextIndex;
+        }
+
+        const handleHateClick = () => {
+            const nextIndex = activeIndex - 1 > 0 ? activeIndex - 1 : group.length-1;
+            const currGroup = document.querySelector(`[data-index="${activeIndex}"]`),
+                  nextGroup = document.querySelector(`[data-index="${nextIndex}"]`);
+
+            currGroup.dataset.status = "after";
+            nextGroup.dataset.status = "becoming-active-from-before";
+            setTimeout(()=> {
+                nextGroup.dataset.status = "active";
+            })
+
+            activeIndex = nextIndex;
+        }
+
+        loveBtn.addEventListener('click', handleLoveClick);
+        hateBtn.addEventListener('click', handleHateClick);
+    </script>
+</html>

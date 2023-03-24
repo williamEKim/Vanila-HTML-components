@@ -1,0 +1,192 @@
+:root{
+    --bg-clr : black;
+    --card-clr : rgba(225,225,225,0.1);
+    --card1-clr : rgba(0,0,225,0.5);
+    --card2-clr : rgba(187, 0, 225, 0.5);
+    --card3-clr : rgba(0, 164, 112, 0.5);
+    --card4-clr : rgba(248, 145, 0, 0.5);
+    --border-clr : rgba(255, 255, 255, 1);
+
+    --card-size : 30vmin;
+    --card-size-small : 12vmin;
+    --card-w-big : clamp(30vmin, 40vmin, 50vmin);
+    --card-w-small : clamp(12vmin, 22vmin, 32vmin);
+}
+
+body{
+    margin: 0px;
+    background: var(--bg-clr);
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.card-groups,
+.card-group,
+.card {
+    aspect-ratio: 5/7;
+}
+
+.card-groups{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-group{
+    position: absolute;
+}
+
+.card-swiper-buttons {
+    margin-top: 20vmin;
+    display: flex;
+    justify-content: space-around;
+    gap: 8vmin;
+}
+
+.card-swiper-buttons > button {
+    font-size: 2.5vmin;
+    border: 0.4vmin slid rgb(200, 200, 200);
+    border-radius: 100%;
+    color: white;
+    background-color: transparent;
+    height: 7vmin;
+    width: 7vmin;
+    cursor: pointer;
+}
+
+.love-button {
+    color: rgb(33, 150, 243);
+    border-color: rgb(33, 150, 243);
+}
+
+.card-group,
+.big-card {
+    width: var(--card-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-group[data-status="after"] {
+    transform: translateX(50%) scale(0);
+}
+
+.card-group[data-status="becoming-active-from-before"] {
+    transform: translateX(-50%) scale(0);
+    transition: none;
+}
+
+.card-group[data-status="active"] {
+    transition-delay: 300ms;
+}
+
+.big-image {
+    width: var(--card-w-big);
+    border-radius: 1vmin;
+}
+
+.small-image {
+    width: var(--card-w-small);
+    border-radius: 2vmin;
+}
+
+.card{
+    /* background: var(--card-clr); */
+    position: absolute;
+    transition: transform 800ms cubic-bezier(.08,.85,.37,.92);
+    background: var(--card-clr);
+}
+
+.front-cover{
+    width: var(--card-size);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 800ms cubic-bezier(.08,.85,.37,.92), opacity 800ms ease-in-out;
+    border-radius: 2vmin;
+}
+
+.cover-img{
+    width: var(--card-size);
+    border-radius: 2vmin;
+}
+
+.big-card{
+    width: var(--card-size);
+    border-radius: 1vmin;
+}
+
+.little-card{
+    width: var(--card-size-small);
+    border-radius: 2vmin;
+    /* background: rgba(225,225,225,0.05); */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.front-cover {
+    transform: rotate(9deg);
+}
+
+.big-card:nth-child(2) {
+    transform: translateX(-10%) rotate(-8deg);
+}
+
+.big-card:nth-child(4) {
+    transform: translate(-10%, -5%) rotate(5deg);
+}
+
+.big-card:nth-child(6) {
+    transform: translateX(-6%) rotate(-3deg);
+}
+
+.big-card:nth-child(8) {
+    transform: translate(10%, 3%) rotate(5deg);
+}
+
+
+
+
+/* hover effect */
+/* big cards */
+.card-group:hover > .big-card:nth-child(2) {
+    transform: translate(-140%, 30%) rotate(-24deg);
+}
+
+.card-group:hover > .big-card:nth-child(4) {
+    transform: translate(-50%, 8%) rotate(-8deg);
+}
+
+.card-group:hover > .big-card:nth-child(6) {
+    transform: translate(50%, 8%) rotate(8deg);
+}
+
+.card-group:hover > .big-card:nth-child(8) {
+    transform: translate(140%, 30%) rotate(24deg);
+}
+
+/*little cards */
+.card-group:hover > .little-card:nth-child(1) {
+    /* background-color: var(--card1-clr); */
+    transform: translate(200%, -160%) rotate(-15deg);
+}
+
+.card-group:hover > .little-card:nth-child(3) {
+    /* background-color: var(--card2-clr); */
+    transform: translate(160%, 80%) rotate(15deg);
+}
+
+.card-group:hover > .little-card:nth-child(5) {
+    transform: translate(-200%, -170%) rotate(15deg);
+}
+
+.card-group:hover > .little-card:nth-child(7) {
+    /* background-color: var(--card4-clr); */
+    transform: translate(-280%, 140%) rotate(-15deg);
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>3D Card!</title>
+    </head>
+    <body>
+    <!-- you can add 'contenteditable' tag for fun! -->
+<pre class="language-css" tabindex="0"><code class="language-css"><span class="token selector">.fun-css</span><span class="token punctuation">{</span>
+  <span class="token property">disiplay</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+
+        <div class="credit-to">
+            <p>Thanks to <a href="https://www.youtube.com/@KevinPowell">Kevin Powell</a> for this amazing <a href="">video</a></p>
+        </div>
+        <script>
+            const pre = document.querySelector('pre');
+
+            document.addEventListener('mousemove', (evt) => {
+                rotateElement(evt, pre);
+            });
+
+            function rotateElement(event ,element){
+                //get mouse position
+                const x = event.clientX;
+                const y = event.clientY;
+                // console.log(x,y);
+
+                //find the middle of the page
+                const middleX = window.innerWidth / 2;
+                const middleY = window.innerHeight / 2;
+
+                //get the offset from middle (*maximum rotation degree)
+                const offsetX = ((x - middleX) / middleX) * 45;
+                const offsetY = ((y - middleY) / middleY) * 45;
+
+                element.style.setProperty('--rotateX', -1 * offsetY + 'deg');
+                element.style.setProperty('--rotateY', offsetX + 'deg' );
+            }
+        </script>
+    </body>
+</html>
