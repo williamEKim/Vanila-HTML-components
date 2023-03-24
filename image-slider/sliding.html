@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Image Slider</title>
+        <link rel="stylesheet" href="sliding.css">
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div id="lt" class="firstToggle" onclick="PrevSlide()">
+                <i class='bx bxs-chevron-left-circle'></i>
+            </div>
+            <div class="box">
+                <div class="image-box">
+                    <img src="background.jpg" alt="" class="slide">
+                    <img src="bg2.jpg" alt="" class="slide">
+                    <img src="background.jpg" alt="" class="slide">
+                </div>
+            </div>
+            <div id="rt" class="secondToggle" onclick="NextSlide()">
+                <i class='bx bxs-chevron-right-circle'></i>
+            </div>
+        </div>
+    </body>
+    <script src="index.js"></script>
+</html>
