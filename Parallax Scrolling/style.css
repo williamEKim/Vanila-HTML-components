@@ -1,0 +1,240 @@
+@import url('htttps://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+:root{
+    --bg-clr: #2b1055;
+    --bg-darker-clr: #1c0522;
+    --text-clr: #fff;
+
+    --ft-Logo: 2em;
+    --ft-title: 3.5em;
+    --ft-title-small: 2em;
+
+    --ft-small: 1em;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.container{
+    min-height: 100%;
+    min-height: 100svh;
+    overflow-y: hidden;
+}
+
+body{
+    min-height: 100%;
+    min-height: 100svh;
+    background: linear-gradient(var(--bg-clr), #7597de);
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: middle;
+    z-index: 3;
+}
+
+header .logo{
+    color: var(--text-clr);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: var(--ft-Logo);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    user-select: none;
+}
+
+header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: clamp(5px, 15px, 20px);
+}
+
+header ul li{
+    list-style: none;
+    margin-left: clamp(5px, 15px, 20px);
+}
+
+header ul li a{
+    text-decoration: none;
+    padding: .5em 1em;
+    color: var(--text-clr);
+    border-radius: 20px;
+}
+
+header ul li a:hover,
+header ul li a.active{
+    background: var(--text-clr);
+    color: var(--bg-clr);
+}
+
+section{
+    position: relative;
+    min-width: 100%;
+    min-height: 100svh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+section::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    background: linear-gradient(to top, var(--bg-darker-clr), transparent);
+}
+
+section img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+section img#moon{
+    mix-blend-mode: screen;
+}
+
+section img#m_f{
+    z-index: 2;
+}
+
+#text{
+    position: absolute;
+    color: var(--text-clr);
+    right: -10%;
+    white-space: nowrap;
+    font-size: 7.5vw;
+    z-index: 2;
+    user-select: none;
+}
+
+.btn-mobile{
+    visibility: hidden;
+    text-decoration: none;
+    display: inline-block;
+    padding: 12px 30px;
+    line-height: 1;
+    border-radius: 40px;
+    background: var(--text-clr);
+    color: var(--bg-clr);
+    font-size: 1.5em;
+}
+.btn{
+    text-decoration: none;
+    display: inline-block;
+    padding: 12px 30px;
+    line-height: 1;
+    border-radius: 40px;
+    background: var(--text-clr);
+    color: var(--bg-clr);
+    font-size: 1.5em;
+    transform: translateY(100px);
+}
+
+.sec{
+    position: relative;
+    padding: 100px;
+    background: var(--bg-darker-clr);
+}
+
+.sec h2{
+    font-size: var(--ft-title);
+    margin-bottom: 10px;
+    color: var(--text-clr);
+}
+
+.sec p{
+    font-size: 1em;
+    color: var(--text-clr);
+}
+
+@media only screen 
+and (min-device-width : 300px) 
+and (max-device-width : 600px) 
+and (orientation : portrait){
+    header{
+        min-width: 100svw;
+        vertical-align: middle;
+        top: 2%;
+    }
+
+    .logo{
+        position: absolute;
+        left: 7%;
+    }
+
+    /* header ul li a{
+        text-decoration: none;
+        padding: .25em .5em;
+        font-size: var(--ft-small);
+    } */
+    header ul{
+        display: none;
+    }
+
+    #text{
+        bottom: 20%;
+        right: -20%;
+    }
+    
+    section{
+        overflow-x: hidden;
+    }
+
+    .btn-mobile{
+        visibility: visible;
+        position: absolute;
+        padding: 8px 20px;
+        font-size: var(--ft-small);
+        right: 7%;
+        transform: translateY(-4px);
+    }
+
+    .btn{
+        visibility: hidden;
+    }
+
+    section img{
+        width:100%;
+        max-width:600px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .sec{
+        padding: 50px;
+    }
+
+    .sec h2{
+        font-size: var(--ft-title-small);
+    }
+
+    .sec p{
+        padding-top: 10px;
+        text-align: center;
+    }
+}
